@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Simulador Hipotecario</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>   
+
+
+<body>
+
+    <!-- ENCABEZADO -->
+
+    <header class="header">
+
+        <div class="logo">
+            Simulador Hipotecario
+        </div>
+
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Información</a>
+        </nav>
+
+    </header>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+
+    <main>
+
+        <!-- PRESENTACIÓN -->
+
+        <section class="hero">
+
+            <h1>
+                Simula tu crédito hipotecario
+            </h1>
+
+            <p>
+                Calcula cuánto podrías obtener,
+                tu pago mensual y las condiciones
+                estimadas de tu crédito.
+            </p>
+
+        </section>
+
+
+        <!-- SIMULADOR -->
+
+        <section class="simulador">
+
+
+            <!-- FORMULARIO -->
+
+            <div class="card formulario">
+
+                <h2>
+                    Datos del crédito
+                </h2>
+
+
+                <div class="form-grid">
+
+
+                    <div class="campo">
+
+                        <label for="producto">
+                            Producto
+                        </label>
+
+                        <select id="producto">
+
+                            <option value="">
+                                Selecciona una opción
+                            </option>
+
+                            <option value="1">
+                                Adquisición tradicional
+                            </option>
+
+                            <option value="2">
+                                Adquisición con apoyo Infonavit
+                            </option>
+
+                            <option value="3">
+                                Cofinavit
+                            </option>
+
+                            <option value="4">
+                                Pasivo hipotecario
+                            </option>
+
+                            <option value="5">
+                                Pasivo con apoyo Infonavit
+                            </option>
+
+                            <option value="6">
+                                Liquidez vivienda
+                            </option>
+
+                            <option value="7">
+                                CI+CB Cofinavit
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="esquema">
+                            Esquema
+                        </label>
+
+                        <select id="esquema">
+
+                            <option value="valora">
+                                Valora
+                            </option>
+
+                            <option value="pagos">
+                                Pagos Oportunos
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="plazo">
+                            Plazo
+                        </label>
+
+                        <select id="plazo">
+
+                            <option value="7">
+                                7 años
+                            </option>
+
+                            <option value="10">
+                                10 años
+                            </option>
+
+                            <option value="15">
+                                15 años
+                            </option>
+
+                            <option value="20">
+                                20 años
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="campania">
+                            Campaña
+                        </label>
+
+                        <select id="campania">
+
+                            <option value="ninguna">
+                                Ninguna
+                            </option>
+
+                            <option value="wm">
+                                WM
+                            </option>
+
+                            <option value="premium">
+                                Premium
+                            </option>
+
+                            <option value="vinculacion">
+                                Vinculación
+                            </option>
+
+                            <option value="green">
+                                Hipoteca Green
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="riesgo">
+                            Índice de riesgo
+                        </label>
+
+                        <select id="riesgo">
+
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5 (R)</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="actividad">
+                            Actividad económica
+                        </label>
+
+                        <select id="actividad">
+
+                            <option value="empleado">
+                                Empleado
+                            </option>
+
+                            <option value="independiente">
+                                Independiente
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="valorVivienda">
+                            Valor de la vivienda
+                        </label>
+
+                        <input
+                            type="number"
+                            id="valorVivienda"
+                            placeholder="$ 0"
+                        >
+
+                    </div>
+
+
+                    <div class="campo">
+
+                        <label for="ingreso">
+                            Ingreso mensual
+                        </label>
+
+                        <input
+                            type="number"
+                            id="ingreso"
+                            placeholder="$ 0"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    id="btnCalcular"
+                    class="btn-calcular">
+
+                    Calcular crédito
+
+                </button>
+
+            </div>
+
+
+            <!-- RESULTADOS -->
+
+            <div class="card resultados">
+
+                <h2>
+                    Resultado
+                </h2>
+
+
+                <div class="resultado-principal">
+
+                    <span>
+                        Crédito estimado
+                    </span>
+
+                    <strong id="creditoResultado">
+                        $0
+                    </strong>
+
+                </div>
+
+
+                <div class="resultados-grid">
+
+
+                    <div class="resultado">
+
+                        <span>
+                            Pago mensual
+                        </span>
+
+                        <strong id="pagoResultado">
+                            $0
+                        </strong>
+
+                    </div>
+
+
+                    <div class="resultado">
+
+                        <span>
+                            Tasa
+                        </span>
+
+                        <strong id="tasaResultado">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="resultado">
+
+                        <span>
+                            CAT
+                        </span>
+
+                        <strong id="catResultado">
+                            0%
+                        </strong>
+
+                    </div>
+
+
+                    <div class="resultado">
+
+                        <span>
+                            Plazo
+                        </span>
+
+                        <strong id="plazoResultado">
+                            0 años
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GASTOS -->
+
+        <section class="card gastos">
+
+            <h2>
+                Gastos iniciales
+            </h2>
+
+
+            <div class="gastos-grid">
+
+                <div>
+
+                    <span>
+                        Avalúo
+                    </span>
+
+                    <strong id="avaluo">
+                        $0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Impuestos
+                    </span>
+
+                    <strong id="impuestos">
+                        $0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Notario
+                    </span>
+
+                    <strong id="notario">
+                        $0
+                    </strong>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        Comisión
+                    </span>
+
+                    <strong id="comision">
+                        $0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- TABLA DE AMORTIZACIÓN -->
+
+        <section class="card amortizacion">
+
+            <h2>
+                Tabla de amortización
+            </h2>
+
+            <div class="tabla-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Mes</th>
+                            <th>Saldo inicial</th>
+                            <th>Interés</th>
+                            <th>Pago</th>
+                            <th>Amortización</th>
+                            <th>Seguro</th>
+                            <th>Saldo final</th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="tablaBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
+
+    <footer>
+
+        Simulador hipotecario · Información con fines ilustrativos
+
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
